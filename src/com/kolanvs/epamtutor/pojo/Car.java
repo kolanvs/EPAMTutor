@@ -5,8 +5,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private String vin;
     private String model;
     private int horsePower;
@@ -41,19 +43,22 @@ public class Car implements Comparable<Car>{
         this.horsePower = horsePower;
     }
 
-    public static Car getCar(String vin, String model, int horsePower) {
-        return new Car(vin, model, horsePower);
+    public static Car getRandomCar(Random rand) {
+        ArrayList<String> types = new ArrayList<>(List.of("Volvo", "Audi", "Mercedes", "VW", "Skoda", "Lada"));
+
+        return new Car(
+                Long.toHexString(Double.doubleToLongBits(Math.random())).substring(2),
+                types.get(Math.abs(rand.nextInt()) % 6),
+                Math.abs(rand.nextInt()) % 10000000 + 10000000);
     }
 
-    public static List<Car> getTestCarList() {
-        List<Car> carList= new ArrayList<>();
+    public static List<Car> getTestCarList(int quantity) {
+        List<Car> carList = new ArrayList<>();
+        Random rand = new Random(System.nanoTime());
 
-        carList.add(new Car("D1V2", "Volvo", 250));
-        carList.add(new Car("A3A4", "Audi", 120));
-        carList.add(new Car("L6M0", "Mercedes", 300));
-        carList.add(new Car("Y2F7", "Ferrari", 600));
-        carList.add(new Car("F5H9", "Hyundai", 80));
-
+        for (int i = 0; i < quantity; i++) {
+            carList.add(getRandomCar(rand));
+        }
         return carList;
     }
 
@@ -71,4 +76,16 @@ public class Car implements Comparable<Car>{
         return Integer.compare(this.horsePower, anotherCar.horsePower);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(vin, car.vin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(vin);
+    }
 }
