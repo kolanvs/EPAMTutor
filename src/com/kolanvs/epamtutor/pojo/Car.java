@@ -1,8 +1,5 @@
 package com.kolanvs.epamtutor.pojo;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -73,23 +70,16 @@ public class Car implements Comparable<Car> {
 
     @Override
     public boolean equals(Object o) {
-        System.out.printf("Start eq - %s vs %s\n", this.toString(), o.toString());
         if (this == o) return true;
-        System.out.println("comp_n1");
         if (o == null || getClass() != o.getClass()) return false;
-        System.out.println("comp_n2");
         Car car = (Car) o;
         int result = vin.compareTo(car.vin);
-        System.out.printf("comp_result = %d\n", result);
         return result == 0;
     }
 
     @Override
-    public int compareTo(@NotNull Car anotherCar) {
-//        System.out.printf("Equality-%s, %d-%s-%s vs %d-%s-%s\n", this.equals(anotherCar) ,
-//                this.horsePower, this.model, this.vin, anotherCar.horsePower, anotherCar.model, this.vin);
+    public int compareTo(Car anotherCar) {
         if (this.equals(anotherCar)) {
-            System.out.printf("Here we are! - %d-%s vs %d-%s\n", this.horsePower, this.model, anotherCar.horsePower, anotherCar.model);
             return 0;
         }
         return Integer.compare(this.horsePower, anotherCar.horsePower);
@@ -97,7 +87,6 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int hashCode() {
-        System.out.printf("HHAASSHH of %s", this.toString());
         return Objects.hash(vin, 5656);
     }
 }

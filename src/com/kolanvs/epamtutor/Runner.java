@@ -1,6 +1,7 @@
 package com.kolanvs.epamtutor;
 
 import com.kolanvs.epamtutor.collections.ListLearn;
+import com.kolanvs.epamtutor.collections.QueueDequeLearn;
 import com.kolanvs.epamtutor.collections.SetMapLearn;
 
 public class Runner {
@@ -15,7 +16,11 @@ public class Runner {
 
         /////////////Tutor set
 
-        SetMapLearn.trySet();
+        //SetMapLearn.trySet();
+
+        /////////////Tutor queue
+
+        QueueDequeLearn.tryQueue();
 
 
     }
