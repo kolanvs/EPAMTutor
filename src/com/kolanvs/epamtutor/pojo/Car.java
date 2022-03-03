@@ -72,20 +72,32 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        System.out.printf("Start eq - %s vs %s\n", this.toString(), o.toString());
+        if (this == o) return true;
+        System.out.println("comp_n1");
+        if (o == null || getClass() != o.getClass()) return false;
+        System.out.println("comp_n2");
+        Car car = (Car) o;
+        int result = vin.compareTo(car.vin);
+        System.out.printf("comp_result = %d\n", result);
+        return result == 0;
+    }
+
+    @Override
     public int compareTo(@NotNull Car anotherCar) {
+//        System.out.printf("Equality-%s, %d-%s-%s vs %d-%s-%s\n", this.equals(anotherCar) ,
+//                this.horsePower, this.model, this.vin, anotherCar.horsePower, anotherCar.model, this.vin);
+        if (this.equals(anotherCar)) {
+            System.out.printf("Here we are! - %d-%s vs %d-%s\n", this.horsePower, this.model, anotherCar.horsePower, anotherCar.model);
+            return 0;
+        }
         return Integer.compare(this.horsePower, anotherCar.horsePower);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return Objects.equals(vin, car.vin);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(vin);
+        System.out.printf("HHAASSHH of %s", this.toString());
+        return Objects.hash(vin, 5656);
     }
 }
