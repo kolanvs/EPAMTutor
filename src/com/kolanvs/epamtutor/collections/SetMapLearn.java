@@ -43,7 +43,7 @@ public class SetMapLearn {
         //Все равно выводится в порядке добавления, хотя и не LinkedHashMap
 
         System.out.println("Linked hash map with access order");
-        //Почему второй аргумент обязательно Float
+        //Почему второй аргумент обязательно Float?
         LinkedHashMap<String, Car> lhmCar = new LinkedHashMap<>(5, 0.75F, true);
 
         for (int i = 0; i < carList.size(); i++) {
