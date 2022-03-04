@@ -65,7 +65,7 @@ public class Car implements Comparable<Car> {
                 "vin='" + vin + '\'' +
                 ", model='" + model + '\'' +
                 ", horsePower=" + horsePower +
-                "}\n";
+                "}";
     }
 
     @Override

@@ -2,9 +2,7 @@ package com.kolanvs.epamtutor.collections;
 
 import com.kolanvs.epamtutor.pojo.Car;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Random;
+import java.util.*;
 
 public class QueueDequeLearn {
 
@@ -17,9 +15,10 @@ public class QueueDequeLearn {
             carQueue.add(Car.getRandomCar(rand));
         }
 
-        System.out.println(carQueue);
+        while(!carQueue.isEmpty()) {
+            System.out.println(carQueue.poll());
+        }
 
-        //Точно не сортирует, но старается
+        //Вывод через .toString Некорректен!!!!!!!!
     }
-
 }

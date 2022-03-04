@@ -17,10 +17,11 @@ public class Runner {
         /////////////Tutor set
 
         //SetMapLearn.trySet();
+        SetMapLearn.tryMap();
 
         /////////////Tutor queue
 
-        QueueDequeLearn.tryQueue();
+        //QueueDequeLearn.tryQueue();
 
 
     }
