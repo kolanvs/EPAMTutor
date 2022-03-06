@@ -28,7 +28,9 @@ public class Runner {
 
         //StartThreadLearn.tryStartThread();
 
-        StartThreadLearn.tryConcurrent();
+        //StartThreadLearn.tryConcurrent();
+
+        StartThreadLearn.tryExecutor();
 
 
     }

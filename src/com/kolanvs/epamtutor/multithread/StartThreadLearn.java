@@ -4,8 +4,9 @@ import com.kolanvs.epamtutor.pojo.Car;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.Random;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class StartThreadLearn {
 
@@ -23,8 +24,7 @@ public class StartThreadLearn {
         System.out.println("New thread started");
         try {
             newThread.join();
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -42,8 +42,7 @@ public class StartThreadLearn {
                     Thread.sleep(150);
                     System.out.printf("We put %d\n", i);
                     bDeque.put(i);
-                }
-                catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -53,8 +52,7 @@ public class StartThreadLearn {
             for (int i = 0; i < 10; i++) {
                 try {
                     System.out.printf("We take %d\n", bDeque.take());
-                }
-                catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -65,6 +63,34 @@ public class StartThreadLearn {
 
         putterThread.start();
         takerThread.start();
+    }
+
+    public static void tryExecutor() {
+
+        System.out.println("Work with executors and callable");
+
+        AtomicInteger atInt = new AtomicInteger(0);
+
+        Callable<Integer> task = atInt::incrementAndGet;
+
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ArrayList<Future<Integer>> futList = new ArrayList<>();
+
+        System.out.println("Task addition");
+
+        for (int i = 0; i < 5; i++) {
+            futList.add(executorService.submit(task));
+        }
+        System.out.println("Added 5 tasks");
+        executorService.shutdown();
+
+        futList.forEach((future) -> {
+            try {
+                System.out.printf("Future result is %d\n", future.get());
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 
