@@ -26,7 +26,9 @@ public class Runner {
 
         /////////Tutor multithreading
 
-        StartThreadLearn.tryStartThread();
+        //StartThreadLearn.tryStartThread();
+
+        StartThreadLearn.tryConcurrent();
 
 
     }
