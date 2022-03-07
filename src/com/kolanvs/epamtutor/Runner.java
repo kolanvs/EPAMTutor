@@ -4,6 +4,7 @@ import com.kolanvs.epamtutor.collections.ListLearn;
 import com.kolanvs.epamtutor.collections.QueueDequeLearn;
 import com.kolanvs.epamtutor.collections.SetMapLearn;
 import com.kolanvs.epamtutor.multithread.StartThreadLearn;
+import com.kolanvs.epamtutor.streams.StreamLearn;
 
 public class Runner {
 
@@ -30,7 +31,11 @@ public class Runner {
 
         //StartThreadLearn.tryConcurrent();
 
-        StartThreadLearn.tryExecutor();
+        //StartThreadLearn.tryExecutor();
+
+        ///////////Tutor streams
+
+        StreamLearn.tryStream();
 
 
     }
