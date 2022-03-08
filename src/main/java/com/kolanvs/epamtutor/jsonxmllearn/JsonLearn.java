@@ -2,6 +2,7 @@ package com.kolanvs.epamtutor.jsonxmllearn;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kolanvs.epamtutor.pojo.Car;
 
@@ -55,6 +56,37 @@ public class JsonLearn {
 
         System.out.println("Car from json:");
         System.out.println(carFromJson);
+
+    }
+
+    public static void tryJsonTree() {
+
+        System.out.println("Json tree");
+        String carArrayJson;
+
+        try {
+            carArrayJson = getFileContent("carArray.json");
+        } catch (IOException e) {
+            e.printStackTrace();
+            carArrayJson = "";
+            System.exit(-2);
+        }
+
+        JsonNode rootNode;
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            rootNode = objectMapper.readValue(carArrayJson, JsonNode.class);
+            JsonNode arrayCars = rootNode.get("carArray");
+            JsonNode opelCar = arrayCars.get(0);
+            System.out.printf("Vin of Opel = %s ", opelCar.get("vin").asText());
+        }
+        catch (JsonProcessingException e) {
+            e.printStackTrace();
+            System.exit(-4);
+        }
+
+
 
     }
 

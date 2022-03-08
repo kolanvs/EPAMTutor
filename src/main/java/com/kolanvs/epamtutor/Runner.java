@@ -40,7 +40,9 @@ public class Runner {
 
         ///////////Tutor json
 
-        JsonLearn.tryJsonBinding();
+        //JsonLearn.tryJsonBinding();
+
+        JsonLearn.tryJsonTree();
 
 
     }
