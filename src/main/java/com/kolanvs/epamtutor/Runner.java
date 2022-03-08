@@ -11,38 +11,50 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        /////////////Tutor collections
-        /////////////Tutor List
+        try {
 
-        //ListLearn.tryList();
-        //ListLearn.performanceList();
+            /////////////Tutor collections
+            /////////////Tutor List
 
-        /////////////Tutor set
+            //ListLearn.tryList();
+            //ListLearn.performanceList();
 
-        //SetMapLearn.trySet();
-        //SetMapLearn.tryMap();
+            /////////////Tutor set
 
-        /////////////Tutor queue
+            //SetMapLearn.trySet();
+            //SetMapLearn.tryMap();
 
-        //QueueDequeLearn.tryQueue();
+            /////////////Tutor queue
 
-        /////////Tutor multithreading
+            //QueueDequeLearn.tryQueue();
 
-        //StartThreadLearn.tryStartThread();
+            /////////Tutor multithreading
 
-        //StartThreadLearn.tryConcurrent();
+            //StartThreadLearn.tryStartThread();
 
-        //StartThreadLearn.tryExecutor();
+            //StartThreadLearn.tryConcurrent();
 
-        ///////////Tutor streams
+            //StartThreadLearn.tryExecutor();
 
-        //StreamLearn.tryStream();
+            ///////////Tutor streams
 
-        ///////////Tutor json
+            //StreamLearn.tryStream();
 
-        //JsonLearn.tryJsonBinding();
+            ///////////Tutor json
 
-        JsonLearn.tryJsonTree();
+            //JsonLearn.tryJsonBinding();
+
+            //JsonLearn.tryJsonTree();
+
+            //JsonLearn.tryJsonStreaming();
+
+            JsonLearn.tryJsonPath();
+
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
