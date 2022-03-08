@@ -10,6 +10,12 @@ public class Car implements Comparable<Car> {
     private String model;
     private int horsePower;
 
+    public Car() {
+        this.vin = "";
+        this.model = "";
+        this.horsePower = 0;
+    }
+
     public Car(String vin, String model, int horsePower) {
         this.vin = vin;
         this.model = model;

@@ -1,0 +1,14 @@
+{
+  "carArray": [
+    {
+      "vin": "A1B1",
+      "model": "Opel",
+      "horsePower": 150
+    },
+    {
+      "vin": "B1C1",
+      "model": "Ferrari",
+      "horsePower": 700
+    }
+  ]
+}
