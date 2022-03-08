@@ -48,7 +48,7 @@ public class Runner {
 
             //JsonLearn.tryJsonStreaming();
 
-            JsonLearn.tryJsonPath();
+            JsonLearn.tryJsonPathAndPointer();
 
         }
 

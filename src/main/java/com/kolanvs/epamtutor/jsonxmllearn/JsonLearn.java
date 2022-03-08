@@ -83,15 +83,20 @@ public class JsonLearn {
 
     }
 
-    public static void tryJsonPath() throws IOException {
+    public static void tryJsonPathAndPointer() throws IOException {
 
-        System.out.println("Json streaming");
+        System.out.println("JsonPath and JsonPointer");
         String carArrayJson = getFileContent("carArray.json");
 
         JSONArray models = JsonPath.read(carArrayJson, "$.carArray[*].model");
 
-        System.out.printf("Founded models: %s",
+        System.out.printf("Founded models from JsonPath: %s\n",
                 models.stream().map(Object::toString).collect(Collectors.joining(", ")));
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(carArrayJson);
+
+        System.out.printf("Model of first car from JsonPointer: %s\n", root.at("/carArray/0/model").asText());
     }
 
 }
